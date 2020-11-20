@@ -34,6 +34,7 @@ s {
 
 h1 {
   font-size: 4.5rem;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -49,11 +50,33 @@ h4 {
    color: rgb(194, 194, 194);
 }
 
+.col-1 {
+	color:#fff;
+	letter-spacing: -5px;
+}
+
+.col-2 {
+	color: rgb(112, 112, 112);
+	letter-spacing: -5px;
+}
+
+.col-3 {
+	color: rgb(255, 230, 0);
+	letter-spacing: -5px;
+}
+
+.stroke {
+	color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: black;
+}
+
 a,
 li {
   text-decoration: none;
   list-style-type: none;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 img {
@@ -63,14 +86,16 @@ img {
 }
 
 .container {
-	background-color: #fff;
+	background-color: rgb(0, 0, 0);
 	display: grid;
 	grid-template-rows: [main-start] repeat(10,100vh ) [main-end footer-start] 40vh [footer-end];
 	grid-template-columns: repeat(4,1fr);
 
 	grid-template-areas:"lan lan lan lan"
-						 "pro pro pro pro"
-						 "thi thi thi thi"
+						 "txt1 txt1 txt1 txt1"
+						 "txt2 txt2 txt2 txt2"
+						 "txt3 txt3 txt3 txt3"
+						 "txt4 txt4 txt4 txt4"
 						 "foo foo foo foo";
 	transition: 1s;
 }
@@ -100,7 +125,9 @@ img {
 // 	margin: 0;
 // }
 
+///////////////////////////////////LANDING PAGE////////////////////////
 .landing_page {
+	// background-color: rgb(46, 46, 46);
 	display: grid;
 	grid-area: lan;
 
@@ -108,68 +135,191 @@ img {
 	grid-template-columns: repeat(2,1fr);
 	grid-template-areas: "logo nav"
 						 "head head";
+	color: #fff;
 }
+
+.home_img {
+	position: fixed;
+	left: 8px;
+	top: 50px
+}
+
+//scroll indicator////////////////////////////
+.percent {
+	position: fixed;
+	left: 20px;
+	bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	background: rgba(255,255,255,0.2);
+	height: 1px;
+	width: 100%;
+	margin: -50px 0 0 50px;
+}
+
+.fill {
+	position: absolute;
+	bottom: 0;
+	width:100%;
+	height: 100%;
+	background: #fff;
+	transition: background 0.15s ease;
+}
+//////////////////////////////////////////////
 
 .logo{
 	grid-area: logo;
 	position: fixed;
 	top: 65px;
-	left: 65px;
+	left: 40px;
 }
 
 .navigation {
 	grid-area: nav;
-	display: flex;
+	display: grid;
+	justify-items: flex-end;
+
 
 	position: fixed;
 	top: 40px;
-	right: 27px;
+	right: 40px;
 	
 	& .menu_button {
-		margin-right: 100px;
+		letter-spacing: 5px;
+		margin-bottom: 10px;
 	}
 }
 
 .header_1 {
-	grid-area: head;
-	display: grid;
 	position: fixed;
-	top: 400px;
-	left: 65px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-40%,-40%);
+	opacity: 1;
 
-	& h4 {
-		margin-left: 5px;
+	& .text-1 {
+		display: flex;
+
+		transform: translate(-50%, -30%);
+		width: 500px;
+		margin-bottom: -25px;
 	}
 }
 
+.header_2 {
+	position: fixed;
+	top: 50%;
+	left: 32%;
+	transform: translate(-40%,-40%);
+	opacity:0;
+
+	& .text-2 {
+		display: flex;
+
+		position:relative;
+		top: 30%;
+		left: 30%;
+		transform: translate(-30%, -50%);
+		width: 500px;
+		margin-bottom: -25px;
+	}
+}
+
+.header_3 {
+	position: fixed;
+	top: 50%;
+	left: 32%;
+	transform: translate(-40%,-40%);
+	opacity:0;
+
+	& .text-3 {
+		display: flex;
+
+		position:relative;
+		top: 30%;
+		left: 30%;
+		transform: translate(-30%, -50%);
+		width: 500px;
+		margin-bottom: -25px;
+	}
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////PROJECTS PAGE////////////////////////////////////////////////////
 .projects {
-	background-color: rgb(243, 243, 243);
-	grid-area: pro;
+	// background-color: rgb(51, 12, 12);
+	grid-area: txt1;
 
 	& .vid-text-1 {
 		position: absolute;
 	}
 
-	& video {
-	height: 100%;
-	width: 100%;
+	& .video {
+	height: 100% !important;
+	width: 100% !important;
 	object-fit: cover;
+	position: sticky !important;
+
+
 }
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////THISANDTHAT////////////////////////////////////////////////////
 .thisandthat {
-	background-color: rgb(255, 255, 255);
-	grid-area: thi;
+	background-color: rgb(90, 36, 36);
+	grid-area: txt2;
+}
 
-	& h1 {
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////FOOTER////////////////////////////////////////////////////
+.footer {
+	background-color:#FFB300;
+	grid-area: foo;
+}
+
+.soci_img {
+	position: fixed;
+	left: 8px;
+	top: 50px
+}
+
+.menu {
+	position: relative;
+	top: 100px;
+	left: 100px;
+	width: 200px;
+
+	& ul li {
+		display: flex;
+
+		& a {
+			font-size: 50px;
+			letter-spacing: -5px;
+			color: #000;
+		}
+	}
+
+	& ul li p {
+	transform: rotate(90deg);
+	letter-spacing: 1px;
+	margin-left: -25px;
+	margin-top: 10px;
+	font-size: 10px;
+}
+}
+
+.divider {
+	position: relative;
+	bottom: 10px;
+	left: 100px;
+	width: 500px;
+
+	& p {
 		position: relative;
-		top: 400px;
-		text-align: center;
+		font-size: 5px;
+		transform: rotate(90deg);
+		letter-spacing: -1px;
 	}
 }
 
-.footer {
-	background-color:rgb(255, 5, 5);
-	grid-area: foo;
-}

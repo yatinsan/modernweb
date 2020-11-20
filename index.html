@@ -23,55 +23,146 @@
     <div class="container" id="container">
       <div class="landing_page" id="land">
         <section class="logo"><s>#</s>Redoc<s></s></section>
+
         <section id="menu_bar">
           <ul class="navigation">
-            <li class="menu_button"><a href="#">Home</a></li>
-            <li class="menu_button"><a href="#">Projects</a></li>
-            <li class="menu_button"><a href="#">Contacts</a></li>
-            <li class="menu_button"><a href="#">Works</a></li>
+            <li class="menu_button"><a href="#">info</a></li>
+            <li class="menu_button"><a href="#">gallery</a></li>
           </ul>
         </section>
+
+        <section class="percent">
+          <section class="fill"></section>
+          <section class="counter">
+            <h1 class="h1"></h1>
+          </section>
+        </section>
+
+        <section class="background_text">
+          <!-- <img src="./backgroundIMG/HOME.png" alt="home" class="home_img" /> -->
+        </section>
+
         <section class="header_1">
-          <div class="landing_text">
-            <h1 class="header-1">I am a coder</h1>
-            <h4>I am also web developer and UI designer</h4>
-            <h4>i create unique and awesome</h4>
-            <h4>websites. Just like this one...</h4>
-          </div>
+          <ul class="text-1">
+            <li><h1 class="col-1">we</h1></li>
+            <li><h1 class="col-2">are</h1></li>
+            <li><h1 class="col-1">some</h1></li>
+            <li><h1 class="col-3">coolguys</h1></li>
+          </ul>
+          <ul class="text-1">
+            <li><h1 class="col-1">in</h1></li>
+            <li><h1 class="col-2">their</h1></li>
+            <li><h1 class="col-3">livingroom</h1></li>
+          </ul>
+        </section>
+        <section class="header_2">
+          <ul class="text-2">
+            <li><h1 class="col-1">this</h1></li>
+            <li><h1 class="col-2">is</h1></li>
+            <li><h1 class="col-1">the</h1></li>
+            <li><h1 class="col-1"></h1></li>
+            <li><h1 class="col-2"></h1></li>
+            <li><h1 class="col-3">homepage</h1></li>
+          </ul>
+          <ul class="text-2"></ul>
+        </section>
+        <section class="header_3">
+          <ul class="text-3">
+            <li><h1 class="col-1">and</h1></li>
+            <li><h1 class="col-2">next</h1></li>
+            <li><h1 class="col-1">comes</h1></li>
+            <li><h1 class="col-1">the.</h1></li>
+            <li><h1 class="col-3">wait!!!</h1></li>
+          </ul>
+          <ul class="text-3">
+            <li><h1 class="col-3"></h1></li>
+          </ul>
         </section>
       </div>
 
-      <div class="projects">
-        <!-- <h1 class="vid-text-1">The new video animation!!</h1> -->
-        <video
-          class="video"
-          id="vid"
-          src="./imgs/VID_20170503_171036911.mp4"
-        ></video>
-      </div>
+      <div class="projects"></div>
 
-      <div class="thisandthat">
-        <h1 class="vid-text-2">Revolutionary</h1>
-      </div>
+      <div class="thisandthat"></div>
 
-      <div class="footer"></div>
+      <div class="footer">
+        <img src="./backgroundIMG/SOCI.png" alt="home" class="soci_img" />
+        <section class="menu">
+          <ul>
+            <li class="footer_navbar">
+              <a href="#">home</a>
+              <p class="text-1">page</p>
+            </li>
+            <li class="footer_navbar">
+              <a href="#">proj</a>
+              <p class="text-2">ects</p>
+            </li>
+            <li class="footer_navbar">
+              <a href="#">crew</a>
+              <p class="text-3">mates</p>
+            </li>
+          </ul>
+        </section>
+        <section class="divider">
+          <p>
+            THIS WORK HERE IS SOMETHING I DEDICATE TO MY 6 MONTHS OF SELF
+            IMPROVEMENT. WHATEVER YOU SEE IN THIS WEBSITE ARE THE RESULTS OF
+            WHAT I HAVE ACCOMPLISHED WITH THESE FEW DAYS.
+          </p>
+        </section>
+        <section class="social"></section>
+        <section class="contact"></section>
+        <section class="copyright"></section>
+      </div>
     </div>
   </body>
-  <script>
-    $(document).ready(function () {
-      $(this).scrollTop(0);
-    });
-  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenLite.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/CSSPlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/easing/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
   <script src="./javascript.js"></script>
-  <script src="./scrollM.js"></script>
+  <!--<script src="./scrollM.js"></script> -->
+  <script>
+    let counter = document.querySelector(".percent");
+
+    TweenLite.set(counter, {
+      xPercent: -5,
+      yPercent: -5,
+    });
+
+    //  window.addEventListener('mousemove', moveCounter);
+
+    //  function moveCounter(e) {
+    //    TweenLite.to(counter, 0.5, {
+    // 	   x: e.clientX,
+    // 	   y: e.clientY,
+    //    })
+    //  }
+
+    function progress() {
+      var windowScrollTop = $(window).scrollTop();
+      var docHeight = $(document).height();
+      var windowHeight = $(window).height();
+      var progress = (windowScrollTop / (docHeight - windowHeight)) * 100;
+
+      var $bgColor = progress > 99 ? "#fff" : "#fff";
+      var $textColor = progress > 99 ? "#fff" : "#333";
+
+      // $(".h1")
+      //   .text(Math.round(progress) + "%")
+      //   .css({ color: $textColor });
+
+      $(".fill")
+        .width(progress + "%")
+        .css({ background: $bgColor });
+    }
+    progress();
+    $(document).on("scroll", progress);
+  </script>
 </html>
