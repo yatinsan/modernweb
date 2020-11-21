@@ -81,6 +81,7 @@ li {
 
 img {
   width: 100%;
+  opacity: 10%;
   height: auto;
   display: block;
 }
@@ -89,7 +90,7 @@ img {
 	background-color: rgb(0, 0, 0);
 	display: grid;
 	grid-template-rows: [main-start] repeat(10,100vh ) [main-end footer-start] 40vh [footer-end];
-	grid-template-columns: repeat(4,1fr);
+	// grid-template-columns: repeat(4,1fr);
 
 	grid-template-areas:"lan lan lan lan"
 						 "txt1 txt1 txt1 txt1"
@@ -138,11 +139,17 @@ img {
 	color: #fff;
 }
 
-.home_img {
+.background_img {
+	display: flex;
 	position: fixed;
-	left: 8px;
-	top: 50px
 }
+
+// .home_img {
+// 	visibility: visible;
+// 	position: fixed;
+// 	left: 8px;
+// 	top: 50px
+// }
 
 //scroll indicator////////////////////////////
 .percent {
@@ -178,6 +185,7 @@ img {
 	grid-area: nav;
 	display: grid;
 	justify-items: flex-end;
+	z-index: 10;
 
 
 	position: fixed;
@@ -244,30 +252,34 @@ img {
 	}
 }
 /////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////SUB HOME PAGE////////////////////////////////////////////////////
+.home {
+	grid-area: txt1;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////PROJECTS PAGE////////////////////////////////////////////////////
 .projects {
 	// background-color: rgb(51, 12, 12);
-	grid-area: txt1;
+	grid-area: txt2;
+	display: flex;
+	text-overflow: hidden;
 
-	& .vid-text-1 {
-		position: absolute;
+	& img {
+	visibility: visible;
+	// position: relative;
+	// left: 8px;
+	// top: 50px
 	}
-
-	& .video {
-	height: 100% !important;
-	width: 100% !important;
-	object-fit: cover;
-	position: sticky !important;
-
-
 }
-}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////THISANDTHAT////////////////////////////////////////////////////
 .thisandthat {
+	display: flex;
 	background-color: rgb(90, 36, 36);
-	grid-area: txt2;
+	grid-area: txt3;
 }
 
 
@@ -275,28 +287,49 @@ img {
 ////////////////////////////FOOTER////////////////////////////////////////////////////
 .footer {
 	background-color:#FFB300;
+	display: grid;
+	grid-template-columns: repeat(3,max-content);
+	grid-template-rows: repeat(1,2fr min-content);
+	grid-template-areas: "fnav soci cont"
+						 "cpy cpy cpy";
 	grid-area: foo;
+	opacity: .9;
+}
+
+.footer_img {
+	position: absolute;
+	display: flex;
 }
 
 .soci_img {
-	position: fixed;
+	visibility: visible;
+	opacity: 50%;
 	left: 8px;
 	top: 50px
 }
 
 .menu {
-	position: relative;
-	top: 100px;
-	left: 100px;
-	width: 200px;
+	// position: relative;
+	// top: 250px;
+	// left: 100px;
+	grid-area: fnav;
+	align-self: center;
+	width: 300px;
+	margin-top: 80px;
+	margin-left: 80px;
 
 	& ul li {
 		display: flex;
+		justify-content: start;
+		color: #000;
+		margin-bottom: 70px;
 
 		& a {
-			font-size: 50px;
-			letter-spacing: -5px;
 			color: #000;
+			font-size: 50px;
+			font-weight: 700;
+			letter-spacing: -5px;
+			z-index: 10;
 		}
 	}
 
@@ -311,15 +344,88 @@ img {
 
 .divider {
 	position: relative;
-	bottom: 10px;
-	left: 100px;
-	width: 500px;
+	bottom: 230px;
+	left: 130px;
+	transform: rotate(90deg);
+	width: 330px;
 
 	& p {
-		position: relative;
-		font-size: 5px;
-		transform: rotate(90deg);
-		letter-spacing: -1px;
+		color: #fff;
+		font-size: 3px;
+		display: flex;
+		justify-content: center;
 	}
+}
+
+.footer_social {
+	grid-area: soci;
+	align-self: center;
+	z-index: 10;
+	// position: relative;
+	// top: 190px;
+	// left: 100px;
+
+	& .social {
+		margin-top: 50px;
+	}
+
+	& .social a {
+		font-weight: 700;
+		color: #000;
+		font-size: 80px;
+	}
+}
+
+.copyright {
+	grid-area: cpy;
+	position: relative;
+	left: 40px;
+	bottom: 40px;
+	font-weight: 500;
+}
+
+.contact {
+	grid-area: cont;
+	margin-top: 280px;
+	margin-left: 150px;
+	z-index: 10;
+
+	& button {
+		align-items: center;
+		background: #ffb300c5;
+		// filter: contrast(-3px);
+		border-radius: 80px;
+		display: flex;
+		height: 100px;
+		width: 280px;
+		justify-content: center;
+		border: 1px solid #ffffff3b;
+
+	&:hover{
+		align-items: center;
+		background: #ffb3005d;
+		border-radius: 80px;
+		display: flex;
+		height: 100px;
+		width: 280px;
+		justify-content: center;
+		box-shadow: 
+			3px 3px 3px 3px  #3f31101f,
+			-3px -3px 5px  #1616151e;
+		transform: scale(.98);
+		transition: .5s;
+	}
+		
+	}
+
+	& button a {
+		text-transform: uppercase;
+		color: rgb(255, 255, 255);
+		text-decoration: none;
+		font-size: 50px;
+		font-weight: 700;
+		letter-spacing: 0;
+	}
+
 }
 

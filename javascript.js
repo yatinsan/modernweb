@@ -29,17 +29,123 @@ headerScroll.to(".header_2", { opacity: 1, duration: 1.5 }),
 headerScroll.to(".header_3", { opacity: 1, duration: 1.5 }),
   headerScroll.to(".header_3", { opacity: 0, duration: 0.5, y: -50 });
 
-// //TEXT-2
-// const headerScroll = gsap.to(".header_2", {
-//   scrollTrigger: {
-//     trigger: ".landing_page",
-//     scrub: true,
-//   },
-//   y: -40,
-//   opacity: 0,
-//   color: "#000",
-//   duration: 1,
-// });
+//TEXT-2
+const imgChange = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".container",
+    scrub: true,
+    start: "+=7100 7200",
+    end: "+=0 0%",
+    markers: true,
+  },
+});
+
+imgChange.to(".home_img", { visibility: "visible" }),
+  imgChange.to(".home_img", { visibility: "hidden", duration: 1 });
+imgChange.to(".soci_img", { visibility: "visible", duration: 1 }),
+  imgChange.to(".soci_img", { visibility: "hidden", duration: 1 });
+
+//repeat animation
+var ww = $(window).width() + 300;
+
+console.log(ww);
+
+var rptTl = new TimelineMax();
+rptTl.fromTo(
+  ".anim-proj3",
+  20,
+  { x: -4400 },
+  { x: ww, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+rptTl.fromTo(
+  ".anim-proj2",
+  20,
+  { x: -4400 },
+  { x: ww, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+rptTl.fromTo(
+  ".anim-proj1",
+  20,
+  { x: -4400 },
+  { x: ww, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+
+rptTl.fromTo(
+  ".anim-home3",
+  20,
+  { x: -4400 },
+  { x: ww, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+rptTl.fromTo(
+  ".anim-home2",
+  20,
+  { x: -4400 },
+  { x: ww, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+rptTl.fromTo(
+  ".anim-home1",
+  20,
+  { x: -4400 },
+  { x: ww, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+
+rptTl.fromTo(
+  ".anim-crew3",
+  20,
+  { x: 1400 },
+  { x: -4000, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+rptTl.fromTo(
+  ".anim-crew2",
+  20,
+  { x: 1400 },
+  { x: -4000, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+rptTl.fromTo(
+  ".anim-crew1",
+  20,
+  { x: 1400 },
+  { x: -4000, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+
+rptTl.fromTo(
+  ".anim-proj1",
+  20,
+  { x: -4400 },
+  { x: ww, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+
+rptTl.fromTo(
+  ".anim-soci3",
+  20,
+  { x: -4400 },
+  { x: ww, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+rptTl.fromTo(
+  ".anim-soci2",
+  20,
+  { x: -4400 },
+  { x: ww, ease: Power0.easeNone, repeat: -1 },
+  1
+);
+rptTl.fromTo(
+  ".anim-soci1",
+  20,
+  { x: -4400 },
+  { x: ww, ease: Power0.easeNone, repeat: -1 },
+  1
+);
 
 //RELOAD PAGE AND THE SCROLL BAR GOES TO THE TOP
 // $(document).ready(function () {
