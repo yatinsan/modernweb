@@ -16,13 +16,10 @@
     rel="stylesheet"
   />
   <!--cutive mono-->
-  <body>
-    <!-- <div class="bg_img">
-      <img src="#" alt="bg-img" />
-    </div> -->
+  <body onload="followMouse();">
     <div class="container" id="container">
       <div class="landing_page" id="land">
-        <section class="logo"><s>#</s>Redoc<s></s></section>
+        <section class="logo"><h3>#redoc</h3></section>
 
         <section id="menu_bar">
           <ul class="navigation">
@@ -31,11 +28,15 @@
           </ul>
         </section>
 
-        <section class="percent">
+        <div class="percent">
           <section class="fill"></section>
           <section class="counter">
             <h1 class="h1"></h1>
           </section>
+        </div>
+
+        <section class="wrap">
+          <section id="ball"></section>
         </section>
 
         <section class="background_img">
@@ -167,11 +168,15 @@
             </li>
           </ul>
           <section class="divider">
-            <p>
-              THIS WORK HERE IS SOMETHING I DEDICATE TO MY 6 MONTHS OF SELF
-              IMPROVEMENT. WHATEVER YOU SEE IN THIS WEBSITE ARE THE RESULTS OF
-              WHAT I HAVE ACCOMPLISHED WITH THESE FEW DAYS.
-            </p>
+            <a href="#">
+              <p>
+                hey guys,hope you enjoy my little workshop right there this is
+                my first try in coding a website, but I think I'm pretty not
+                bad/good at it...the review is upto you The viewers. I had put
+                my 6 months of self learned coding all into this project. If you
+                are reading this then you are pretty much doomed....
+              </p></a
+            >
           </section>
         </section>
         <section class="footer_social">
@@ -191,7 +196,7 @@
           <p>© 2020 redoc. All rights reserved.</p>
         </span>
         <section class="contact">
-          <button class="button"><a href="#">contact</a></button>
+          <span class="button"><a href="#">contact</a></span>
         </section>
       </div>
     </div>
@@ -233,7 +238,7 @@
       var windowHeight = $(window).height();
       var progress = (windowScrollTop / (docHeight - windowHeight)) * 100;
 
-      var $bgColor = progress > 99 ? "#fff" : "#fff";
+      var $bgColor = progress > 99 ? "#FFB300" : "#fff";
       var $textColor = progress > 99 ? "#fff" : "#333";
 
       // $(".h1")
@@ -241,10 +246,52 @@
       //   .css({ color: $textColor });
 
       $(".fill")
-        .width(progress + "%")
+        .height(progress + "%")
         .css({ background: $bgColor });
     }
     progress();
     $(document).on("scroll", progress);
+  </script>
+
+  <script>
+    const dc = document.querySelector.bind(document);
+    const $on = document.addEventListener.bind(document);
+
+    var xmouse, ymouse;
+    $on("mousemove", function (e) {
+      xmouse = e.clientX || e.pageX;
+      ymouse = e.clientY || e.pageY;
+    });
+
+    var ball = dc("#ball");
+    var x = void 0,
+      y = void 0,
+      dx = void 0,
+      dy = void 0,
+      tx = 0,
+      ty = 0,
+      key = -1;
+
+    var followMouse = function followMouse() {
+      key = requestAnimationFrame(followMouse);
+
+      if (!x || !y) {
+        x = xmouse;
+        y = ymouse;
+      } else {
+        dx = (xmouse - x) * 0.125;
+        dy = (ymouse - y) * 0.125;
+        if (Math.abs(dx) + Math.abs(dy) < 0.1) {
+          x = xmouse;
+          y = ymouse;
+        } else {
+          x += dx;
+          y += dy;
+        }
+      }
+      ball.style.left = x + "px";
+      ball.style.top = y + "px";
+      console.log(clientX, clientY);
+    };
   </script>
 </html>

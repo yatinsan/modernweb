@@ -3,8 +3,20 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    background: hidden;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
 html {
-//    overflow-y: hidden;
+    overflow: scroll;
+    overflow-x: hidden;
+	cursor: crosshair;
+	caret-color: yellow;
 }
 
 body {
@@ -153,18 +165,19 @@ img {
 
 //scroll indicator////////////////////////////
 .percent {
+	z-index: 10;
 	position: fixed;
-	left: 20px;
-	bottom: 20px;
+	right: 20px;
+	top: 250px;
 	display: flex;
 	flex-direction: column;
 	background: rgba(255,255,255,0.2);
-	height: 1px;
-	width: 100%;
+	height: 500px;
+	width: 1px;
 	margin: -50px 0 0 50px;
 }
 
-.fill {
+#fill {
 	position: absolute;
 	bottom: 0;
 	width:100%;
@@ -172,9 +185,37 @@ img {
 	background: #fff;
 	transition: background 0.15s ease;
 }
+
+//mouse follow///////////////////////////////
+.wrap {
+	width: 0;
+	height:0;
+	z-index: 9;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	// overflow: hidden;
+}
+
+#ball {
+	width: 30px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid grey;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -10px 0 0 -10px;
+	pointer-events: none;
+	filter: opacity(50%);
+}
 //////////////////////////////////////////////
 
 .logo{
+	z-index:10;
 	grid-area: logo;
 	position: fixed;
 	top: 65px;
@@ -278,7 +319,7 @@ img {
 ////////////////////////////THISANDTHAT////////////////////////////////////////////////////
 .thisandthat {
 	display: flex;
-	background-color: rgb(90, 36, 36);
+	// background-color: rgb(90, 36, 36);
 	grid-area: txt3;
 }
 
@@ -286,7 +327,8 @@ img {
 /////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////FOOTER////////////////////////////////////////////////////
 .footer {
-	background-color:#FFB300;
+	// background-color:#FFB300;
+	background-color:#221F17;
 	display: grid;
 	grid-template-columns: repeat(3,max-content);
 	grid-template-rows: repeat(1,2fr min-content);
@@ -321,11 +363,12 @@ img {
 	& ul li {
 		display: flex;
 		justify-content: start;
-		color: #000;
+		// color: #000;
+		color: rgb(255, 255, 255);
 		margin-bottom: 70px;
 
 		& a {
-			color: #000;
+			color: rgb(255, 255, 255);
 			font-size: 50px;
 			font-weight: 700;
 			letter-spacing: -5px;
@@ -345,15 +388,21 @@ img {
 .divider {
 	position: relative;
 	bottom: 230px;
-	left: 130px;
+	left: 100px;
 	transform: rotate(90deg);
-	width: 330px;
+	width: 360px;
 
 	& p {
 		color: #fff;
 		font-size: 3px;
+		letter-spacing: 1px;
 		display: flex;
 		justify-content: center;
+	}
+
+	& a:hover{
+		cursor: no-drop;
+		cursor: url();
 	}
 }
 
@@ -371,12 +420,13 @@ img {
 
 	& .social a {
 		font-weight: 700;
-		color: #000;
+		color: rgb(141, 141, 141);
 		font-size: 80px;
 	}
 }
 
 .copyright {
+	color: rgb(141, 141, 141);
 	grid-area: cpy;
 	position: relative;
 	left: 40px;
@@ -390,7 +440,7 @@ img {
 	margin-left: 150px;
 	z-index: 10;
 
-	& button {
+	& span {
 		align-items: center;
 		background: #ffb300c5;
 		// filter: contrast(-3px);
@@ -403,7 +453,7 @@ img {
 
 	&:hover{
 		align-items: center;
-		background: #ffb3005d;
+		background: #221f1760;
 		border-radius: 80px;
 		display: flex;
 		height: 100px;
@@ -418,13 +468,18 @@ img {
 		
 	}
 
-	& button a {
+	& span a {
 		text-transform: uppercase;
 		color: rgb(255, 255, 255);
 		text-decoration: none;
 		font-size: 50px;
 		font-weight: 700;
 		letter-spacing: 0;
+		transition: .5s ease-out;
+
+		&:hover{
+			color:  #ffb300c5;
+		}
 	}
 
 }

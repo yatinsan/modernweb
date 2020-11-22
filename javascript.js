@@ -23,11 +23,11 @@ const headerScroll = gsap.timeline({
 });
 
 headerScroll.to(".header_1", { opacity: 1, duration: 1.5 }),
-  headerScroll.to(".header_1", { opacity: 0, duration: 0.5 });
-headerScroll.to(".header_2", { opacity: 1, duration: 1.5 }),
-  headerScroll.to(".header_2", { opacity: 0, duration: 1.5 });
-headerScroll.to(".header_3", { opacity: 1, duration: 1.5 }),
-  headerScroll.to(".header_3", { opacity: 0, duration: 0.5, y: -50 });
+  headerScroll.to(".header_1", { opacity: 0, duration: 1 });
+headerScroll.to(".header_2", { opacity: 1, duration: 2.5 }),
+  headerScroll.to(".header_2", { opacity: 0, duration: 2.5 });
+headerScroll.to(".header_3", { opacity: 1, duration: 2.5 }),
+  headerScroll.to(".header_3", { opacity: 0, duration: 1, y: -50 });
 
 //TEXT-2
 const imgChange = gsap.timeline({
@@ -151,3 +151,5 @@ rptTl.fromTo(
 // $(document).ready(function () {
 //   $(window).scrollTop(0);
 // });
+
+//////////////////////////////////
