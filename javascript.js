@@ -22,130 +22,112 @@ const headerScroll = gsap.timeline({
   },
 });
 
-headerScroll.to(".header_1", { opacity: 1, duration: 1.5 }),
-  headerScroll.to(".header_1", { opacity: 0, duration: 1 });
+headerScroll.to(".header_1", { opacity: 1, duration: 1 }),
+  headerScroll.to(".header_1", { opacity: 0, duration: 1, y: -70 });
 headerScroll.to(".header_2", { opacity: 1, duration: 2.5 }),
-  headerScroll.to(".header_2", { opacity: 0, duration: 2.5 });
+  headerScroll.to(".header_2", { opacity: 0, duration: 2.5, y: -50 });
 headerScroll.to(".header_3", { opacity: 1, duration: 2.5 }),
   headerScroll.to(".header_3", { opacity: 0, duration: 1, y: -50 });
 
-//TEXT-2
-const imgChange = gsap.timeline({
+//TEXT-2  ANIMATIONS
+const smlAnim = gsap.timeline({
   scrollTrigger: {
-    trigger: ".container",
+    trigger: ".projects",
     scrub: true,
-    start: "+=7100 7200",
-    end: "+=0 0%",
+    // start: "+=100% 150%",
+    // end: "+=10% 100%",
+    start: "0%",
+    end: "200%",
+    pin: true,
     markers: true,
+    // toggleActions: "play reverse play reverse",
   },
 });
 
-imgChange.to(".home_img", { visibility: "visible" }),
-  imgChange.to(".home_img", { visibility: "hidden", duration: 1 });
-imgChange.to(".soci_img", { visibility: "visible", duration: 1 }),
-  imgChange.to(".soci_img", { visibility: "hidden", duration: 1 });
+// smlAnim.to(".proj_text1", { opacity: 0 });
 
-//repeat animation
-var ww = $(window).width() + 300;
+////SCROLLREVEAL.JS 3rd PARTY PLUGIN//////////
+window.sr = new ScrollReveal();
+// const header1 = {
+//   delay: 1,
+//   origin: "left",
+//   distance: "200px",
+//   duration: 2000,
+//   reset: true,
+// };
 
-console.log(ww);
+const line = {
+  delay: 1,
+  origin: "top",
+  distance: "200px",
+  duration: 2000,
+  reset: true,
+};
 
-var rptTl = new TimelineMax();
-rptTl.fromTo(
-  ".anim-proj3",
-  20,
-  { x: -4400 },
-  { x: ww, ease: Power0.easeNone, repeat: -1 },
-  1
-);
-rptTl.fromTo(
-  ".anim-proj2",
-  20,
-  { x: -4400 },
-  { x: ww, ease: Power0.easeNone, repeat: -1 },
-  1
-);
-rptTl.fromTo(
-  ".anim-proj1",
-  20,
-  { x: -4400 },
-  { x: ww, ease: Power0.easeNone, repeat: -1 },
-  1
-);
+const opacity = {
+  delay: 1,
+  origin: "top",
+  distance: "200px",
+  duration: 2000,
+  reset: true,
+};
 
-rptTl.fromTo(
-  ".anim-home3",
-  20,
-  { x: -4400 },
-  { x: ww, ease: Power0.easeNone, repeat: -1 },
-  1
-);
-rptTl.fromTo(
-  ".anim-home2",
-  20,
-  { x: -4400 },
-  { x: ww, ease: Power0.easeNone, repeat: -1 },
-  1
-);
-rptTl.fromTo(
-  ".anim-home1",
-  20,
-  { x: -4400 },
-  { x: ww, ease: Power0.easeNone, repeat: -1 },
-  1
-);
+// sr.reveal(".proj_text1", opacity);
+// sr.reveal(".line", line);
 
-rptTl.fromTo(
-  ".anim-crew3",
-  20,
-  { x: 1400 },
-  { x: -4000, ease: Power0.easeNone, repeat: -1 },
-  1
-);
-rptTl.fromTo(
-  ".anim-crew2",
-  20,
-  { x: 1400 },
-  { x: -4000, ease: Power0.easeNone, repeat: -1 },
-  1
-);
-rptTl.fromTo(
-  ".anim-crew1",
-  20,
-  { x: 1400 },
-  { x: -4000, ease: Power0.easeNone, repeat: -1 },
-  1
-);
+// sr.reveal(".proj_text2", opacity);
+// sr.reveal(".proj_text3", opacity);
 
-rptTl.fromTo(
-  ".anim-proj1",
-  20,
-  { x: -4400 },
-  { x: ww, ease: Power0.easeNone, repeat: -1 },
-  1
-);
+////////FAQ ANIMATION////////////////////////////
 
-rptTl.fromTo(
-  ".anim-soci3",
-  20,
-  { x: -4400 },
-  { x: ww, ease: Power0.easeNone, repeat: -1 },
-  1
-);
-rptTl.fromTo(
-  ".anim-soci2",
-  20,
-  { x: -4400 },
-  { x: ww, ease: Power0.easeNone, repeat: -1 },
-  1
-);
-rptTl.fromTo(
-  ".anim-soci1",
-  20,
-  { x: -4400 },
-  { x: ww, ease: Power0.easeNone, repeat: -1 },
-  1
-);
+/////SECTION SNAPPING//////////////////
+// gsap.registerPlugin(ScrollTrigger);
+
+// let sections = gsap.utils.toArray(".faq .faq_sub");
+
+//head1
+const head = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".projects",
+    ease: "none",
+    start: "top top",
+    markers: true,
+    scrub: 1,
+    end: () => "+=" + document.querySelector(".gap2").offsetWidth / 5,
+  },
+});
+
+head.fromTo(".proj_text1", { opacity: 1 }, { opacity: 0, y: -500 });
+
+//head2
+const head2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".crew",
+    ease: "none",
+    start: "top top",
+    markers: true,
+    scrub: 1,
+    end: () => "+=" + document.querySelector(".gap2").offsetWidth / 5,
+  },
+});
+
+head2.to(".proj_text2", { opacity: 0, y: -500 });
+
+//head3
+const head3 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".gap2",
+    ease: "none",
+    start: "top top",
+    markers: true,
+    scrub: 1,
+    end: () => "+=" + document.querySelector(".gap2").offsetWidth / 5,
+  },
+});
+
+head3.to(".proj_text3", { opacity: 0, y: -500 });
+
+// // Is the same as...
 
 //RELOAD PAGE AND THE SCROLL BAR GOES TO THE TOP
 // $(document).ready(function () {
