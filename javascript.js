@@ -1,33 +1,45 @@
 /////////////GSAP////////////
 // simple scroll
-// const headerAnim = gsap.to(".header_1", {
-//   scrollTrigger: {
-//     trigger: ".landing_page",
-//     toggleActions: "play none reverse none",
-//     // markers: true,
-//     start: "20%",
-//     end: "50%",
-//   },
-//   opacity: 0,
-// });
+const staggerAnim = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".projects",
+    start: "0%",
+    end: "200%",
+    toggleActions: "play reverse play reverse",
+  },
+});
+staggerAnim.from(
+  ".text-4",
+  0.5,
+  {
+    opacity: 0,
+    x: 100,
+    ease: Power4.out,
+    skewY: 1,
+    stagger: {
+      amount: 0.4,
+    },
+  },
+  0.1
+);
 
 ////////////TEXT-1 sliding animation gsap//////////////////////////
 const headerScroll = gsap.timeline({
   scrollTrigger: {
-    trigger: ".landing_page",
+    trigger: ".first_page",
     scrub: true,
-    start: "+=750 100%",
-    end: "+=200 0%",
+    start: "0%",
+    end: "100%",
     toggleActions: "play reverse play reverse",
   },
 });
 
-headerScroll.to(".header_1", { opacity: 1, duration: 1 }),
+headerScroll.from(".header_1", { opacity: 0, duration: 5.5, y: 20 }),
   headerScroll.to(".header_1", { opacity: 0, duration: 1, y: -70 });
-headerScroll.to(".header_2", { opacity: 1, duration: 2.5 }),
-  headerScroll.to(".header_2", { opacity: 0, duration: 2.5, y: -50 });
-headerScroll.to(".header_3", { opacity: 1, duration: 2.5 }),
-  headerScroll.to(".header_3", { opacity: 0, duration: 1, y: -50 });
+headerScroll.from(".header_2", { opacity: 0, duration: 4.5, y: 20 }),
+  headerScroll.to(".header_2", { opacity: 0, duration: 4.5, y: -50 });
+headerScroll.from(".header_3", { opacity: 0, duration: 4.5, y: 20 }),
+  headerScroll.to(".header_3", { opacity: 0, duration: 4, y: -50 });
 
 //TEXT-2  ANIMATIONS
 const smlAnim = gsap.timeline({
@@ -36,11 +48,11 @@ const smlAnim = gsap.timeline({
     scrub: true,
     // start: "+=100% 150%",
     // end: "+=10% 100%",
-    start: "0%",
+    start: "5%",
     end: "200%",
     pin: true,
     markers: true,
-    // toggleActions: "play reverse play reverse",
+    toggleActions: "play reverse play reverse",
   },
 });
 
@@ -48,37 +60,41 @@ const smlAnim = gsap.timeline({
 
 ////SCROLLREVEAL.JS 3rd PARTY PLUGIN//////////
 window.sr = new ScrollReveal();
-// const header1 = {
-//   delay: 1,
-//   origin: "left",
-//   distance: "200px",
-//   duration: 2000,
-//   reset: true,
-// };
-
-const line = {
+const rightSc = {
   delay: 1,
-  origin: "top",
+  origin: "right",
   distance: "200px",
   duration: 2000,
   reset: true,
 };
 
-const opacity = {
+const bottomSc = {
   delay: 1,
-  origin: "top",
+  origin: "bottom",
   distance: "200px",
   duration: 2000,
   reset: true,
 };
 
-// sr.reveal(".proj_text1", opacity);
-// sr.reveal(".line", line);
+const scaleSc = {
+  delay: 1,
+  scale: 0.2,
+  distance: "200px",
+  duration: 2000,
+  reset: true,
+};
+
+sr.reveal(".proj_content", rightSc);
+sr.reveal(".proj_content", scaleSc);
+
+// sr.reveal(".question_flex", leftSc);
+// sr.reveal(".question_para", bottomSc);
+// sr.reveal(".blur", scaleSc);
 
 // sr.reveal(".proj_text2", opacity);
 // sr.reveal(".proj_text3", opacity);
 
-////////FAQ ANIMATION////////////////////////////
+////////projects ANIMATION////////////////////////////
 
 /////SECTION SNAPPING//////////////////
 // gsap.registerPlugin(ScrollTrigger);
