@@ -1,45 +1,55 @@
 /////////////GSAP////////////
 // simple scroll
-const staggerAnim = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".projects",
-    start: "0%",
-    end: "200%",
-    toggleActions: "play reverse play reverse",
-  },
-});
-staggerAnim.from(
-  ".text-4",
-  0.5,
-  {
-    opacity: 0,
-    x: 100,
-    ease: Power4.out,
-    skewY: 1,
-    stagger: {
-      amount: 0.4,
-    },
-  },
-  0.1
-);
+// const staggerAnim = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: ".projects",
+//     start: "0%",
+//     end: "200%",
+//     toggleActions: "play reverse play reverse",
+//   },
+// });
+// staggerAnim.from(
+//   ".text-4",
+//   0.5,
+//   {
+//     opacity: 0,
+//     x: 100,
+//     ease: Power4.out,
+//     skewY: 1,
+//     stagger: {
+//       amount: 0.4,
+//     },
+//   },
+//   0.1
+// );
 
 ////////////TEXT-1 sliding animation gsap//////////////////////////
 const headerScroll = gsap.timeline({
   scrollTrigger: {
     trigger: ".first_page",
     scrub: true,
-    start: "0%",
-    end: "100%",
+    start: "-12%",
+    end: "150%",
+    markers: true,
     toggleActions: "play reverse play reverse",
+    pin: true,
   },
 });
 
-headerScroll.from(".header_1", { opacity: 0, duration: 5.5, y: 20 }),
-  headerScroll.to(".header_1", { opacity: 0, duration: 1, y: -70 });
+headerScroll.from(".header_1", { opacity: 0, duration: 4, y: 20 }),
+  headerScroll.to(".header_1", { opacity: 1, duration: 3, y: -70 });
 headerScroll.from(".header_2", { opacity: 0, duration: 4.5, y: 20 }),
-  headerScroll.to(".header_2", { opacity: 0, duration: 4.5, y: -50 });
+  headerScroll.to(".header_2", { opacity: 1, duration: 4.5, y: -50 });
+headerScroll.from(".and", { opacity: 0, duration: 4.5, x: -20 }),
+  headerScroll.to(".and", { opacity: 1, duration: 4 });
 headerScroll.from(".header_3", { opacity: 0, duration: 4.5, y: 20 }),
-  headerScroll.to(".header_3", { opacity: 0, duration: 4, y: -50 });
+  headerScroll.to(".header_3", { opacity: 1, duration: 4, y: -50 });
+
+//fade away
+headerScroll.to(".header_1", { opacity: 0, duration: 4, x: 70 });
+headerScroll.to(".header_2", { opacity: 0, duration: 4, x: 50 });
+headerScroll.to(".and", { opacity: 0, duration: 4.5, x: -50 });
+headerScroll.to(".header_3", { opacity: 0, duration: 1, x: 50 });
 
 //TEXT-2  ANIMATIONS
 const smlAnim = gsap.timeline({
@@ -50,7 +60,7 @@ const smlAnim = gsap.timeline({
     // end: "+=10% 100%",
     start: "5%",
     end: "200%",
-    pin: true,
+    // pin: true,
     markers: true,
     toggleActions: "play reverse play reverse",
   },

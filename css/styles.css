@@ -55,12 +55,16 @@ h4 {
   letter-spacing: -5px; }
 
 .col-2 {
-  color: var(--grey-color);
+  color: var(--yellow-color);
   letter-spacing: -5px; }
 
 .col-3 {
   color: var(--yellow-color);
   letter-spacing: -5px; }
+
+.col-1, .col-2, .col-3 {
+  font-family: sans-serif;
+  font-weight: 900; }
 
 .stroke {
   color: var(--black-color);
@@ -105,6 +109,20 @@ img {
   opacity: 1;
   transform: translate(-50%, -50%) scale(8); }
 
+.circular-text {
+  position: fixed;
+  top: 65%;
+  left: 95%;
+  color: black;
+  font-size: 24px;
+  font-weight: thin;
+  font-family: "Monument Extended";
+  transition: 0.1s ease; }
+
+ion-icon {
+  font-size: 100px;
+  color: black; }
+
 .container {
   background-color: var(--black-color);
   display: grid;
@@ -113,12 +131,57 @@ img {
   transition: 1s; }
 
 .landing_page {
-  background-color: var(--white-color);
-  display: grid;
-  grid-area: lan;
-  grid-template-rows: [nav-start] 30vh [nav-end head-start] 70vh;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "logo nav" "head head"; }
+  background-color: var(--black-color);
+  grid-area: lan; }
+  .landing_page .main_content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    color: var(--white-color);
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%); }
+    .landing_page .main_content img {
+      width: auto;
+      height: 800px; }
+    .landing_page .main_content .main_btn {
+      z-index: 20;
+      background: #0e0e0e;
+      color: var(--black-color);
+      padding: 10px;
+      width: 190px;
+      height: 20px;
+      transition: .2s ease-out;
+      display: flex;
+      align-items: center;
+      margin-top: 30px; }
+      .landing_page .main_content .main_btn .arrow-down {
+        color: var(--black-color); }
+      .landing_page .main_content .main_btn p {
+        width: 200px;
+        height: 10px;
+        margin-left: 15px; }
+    .landing_page .main_content .main_text1 {
+      transform: rotate(-90deg);
+      width: 25%;
+      position: relative;
+      top: 140px;
+      right: 220px; }
+    .landing_page .main_content .main_text1, .landing_page .main_content .main_text2 {
+      font-family: sans-serif;
+      font-size: 130px;
+      font-weight: 900; }
+    .landing_page .main_content .main_line {
+      width: 400px;
+      height: 2px;
+      background-color: #0e0e0e; }
+    .landing_page .main_content .main_para {
+      text-transform: capitalize;
+      font-size: 20px; }
+      .landing_page .main_content .main_para h4 {
+        font-size: 15px; }
 
 .percent {
   z-index: 3;
@@ -156,11 +219,15 @@ img {
 
 .first_page {
   grid-area: txt1; }
-  .first_page .header_1 {
+  .first_page .and {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%, -40%);
+    top: 15%;
+    left: 10%;
+    font-size: 300px; }
+  .first_page .header_1 {
+    position: relative;
+    top: 30%;
+    left: 40%;
     opacity: 1; }
     .first_page .header_1 .text-1 {
       display: flex;
@@ -168,10 +235,9 @@ img {
       width: 500px;
       margin-bottom: -25px; }
   .first_page .header_2 {
-    position: fixed;
-    top: 50%;
-    left: 45%;
-    transform: translate(-40%, -40%);
+    position: relative;
+    top: 38%;
+    left: 35%;
     opacity: 1; }
     .first_page .header_2 .text-2 {
       display: flex;
@@ -179,10 +245,9 @@ img {
       width: 500px;
       margin-bottom: -25px; }
   .first_page .header_3 {
-    position: fixed;
-    top: 50%;
-    left: 40%;
-    transform: translate(-40%, -40%);
+    position: relative;
+    top: 46%;
+    left: 37%;
     opacity: 1; }
     .first_page .header_3 .text-3 {
       display: flex;
@@ -242,7 +307,6 @@ img {
   grid-area: txt6;
   border-bottom: 1px solid var(--lite-black); }
   .faq .faq_sub .blur {
-    background-color: var(--grey-color);
     position: absolute;
     left: 15%;
     margin-top: 200px;
@@ -263,7 +327,7 @@ img {
       position: relative;
       left: 20%;
       top: 10%;
-      color: var(--yellow-color);
+      color: var(--white-color);
       font-size: 300px;
       opacity: 0.2; }
   .faq .faq_sub .questions {
@@ -272,7 +336,7 @@ img {
     margin-top: 250px;
     width: 60vw;
     height: 60vh;
-    font-family: 'cutive mono';
+    font-family: sans-serif;
     color: var(--white-color); }
     .faq .faq_sub .questions .question_flex {
       display: flex;
@@ -281,10 +345,18 @@ img {
       .faq .faq_sub .questions .question_flex h1 {
         text-transform: uppercase; }
       .faq .faq_sub .questions .question_flex h2 {
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: var(--white-color);
+        -webkit-text-fill-color: transparent; }
     .faq .faq_sub .questions p {
-      text-transform: uppercase;
-      font-size: 30px; }
+      text-transform: capitalize;
+      color: var(--white-color);
+      font-size: 30px;
+      letter-spacing: 2px;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: var(--white-color);
+      -webkit-text-fill-color: transparent; }
   .faq .faq2, .faq .faq3 {
     opacity: 0; }
 
@@ -297,7 +369,7 @@ img {
     position: absolute;
     left: 35px;
     margin-top: 160px;
-    -webkit-text-fill-color: var(--grey-color);
+    -webkit-text-fill-color: var(--darkBlue-color);
     -webkit-text-stroke-width: 0px;
     opacity: .2; }
   .footer .copyright {
@@ -365,7 +437,7 @@ img {
     margin-top: 100px; }
     .footer_items .contact span {
       align-items: center;
-      background: var(--yellow-color);
+      background: var(--darkBlue-color);
       border-radius: 80px;
       display: flex;
       height: 100px;
@@ -374,7 +446,7 @@ img {
       border: 1px solid #ffffff3b; }
     .footer_items .contact span a {
       text-transform: uppercase;
-      color: var(--white-color);
+      color: var(--black-color);
       text-decoration: none;
       font-size: 50px;
       font-weight: 700;

@@ -30,10 +30,31 @@
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+
+  <!------->
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   <body onload="followMouse();">
     <div class="container" id="container">
       <div class="panel landing_page" id="land">
         <div class="logo"><h3>#REDOC</h3></div>
+        <div class="main_content">
+          <h1 class="main_text1">i'm</h1>
+          <h1 class="main_text2">Aravind</h1>
+          <div class="main_line"></div>
+          <p class="main_para">
+            i'm a <h4>freelance web developer and ui/ux designer </h4>
+          </p>
+          <a href="#first_page" class="main_btn">&darr;whats down there!!</a>
+        </div>
+
+        <!---circle animation-->
+         <div class="circular-text">
+          <span id="rotated">
+            webdeveloper . freelance . portfolio . coder . fullstack . kickboxer . artist . ui/ux> dnivara <
+          </span>
+        </div>
 
         <div id="menu_bar">
           <ul class="navigation">
@@ -43,7 +64,7 @@
             <li class="gallery_button hover-this">
               <a href="#" id="span">gallery</a>
             </li>
-            <div class="cursor"></div>
+            <!-- <div class="cursor"></div> -->
           </ul>
         </div>
 
@@ -60,44 +81,37 @@
         </div>
       </div>
 
-      <div class="panel first_page">
+      <div class="panel first_page" id="first_page">
         <h1 class="home_text bgtext"></h1>
-
+            <h1 class="and">&</h1>
         <div class="header_1">
-          <ul class="text-1">
+          <div class="text-1">
             <li><h1 class="col-1">we</h1></li>
-            <li><h1 class="col-2">are</h1></li>
-            <li><h1 class="col-1">some</h1></li>
-            <li><h1 class="col-3">coolguys</h1></li>
-          </ul>
-          <ul class="text-1">
-            <li><h1 class="col-1">in</h1></li>
-            <li><h1 class="col-2">their</h1></li>
-            <li><h1 class="col-3">livingroom</h1></li>
-          </ul>
+            <li><h1 class="col-2">help</h1></li>
+            <li><h1 class="col-1">business</h1></li>
+            <li><h1 class="col-3">Grow</h1></li>
+          </div>
+          <div class="text-1">
+            
+          </div>
         </div>
         <div class="header_2">
-          <ul class="text-2">
-            <li><h1 class="col-1">this</h1></li>
-            <li><h1 class="col-2">is</h1></li>
-            <li><h1 class="col-1">the</h1></li>
-            <li><h1 class="col-1"></h1></li>
-            <li><h1 class="col-2"></h1></li>
-            <li><h1 class="col-3">homepage</h1></li>
-          </ul>
-          <ul class="text-2"></ul>
+          <div class="text-2">
+            <li><h1 class="col-1">we</h1></li>
+            <li><h1 class="col-2">create</h1></li>
+            <li><h1 class="col-1">new</h1></li>
+            <li><h1 class="col-3">trends</h1></li>
+          </div>
+          <div class="text-2"></div>
         </div>
         <div class="header_3">
-          <ul class="text-3">
-            <li><h1 class="col-1">and</h1></li>
-            <li><h1 class="col-2">next</h1></li>
-            <li><h1 class="col-1">comes</h1></li>
-            <li><h1 class="col-1">the.</h1></li>
-            <li><h1 class="col-3">wait!!!</h1></li>
-          </ul>
-          <ul class="text-3">
-            <li><h1 class="col-3"></h1></li>
-          </ul>
+          <div class="text-3">
+            <li><h1 class="col-1">this</h1></li>
+            <li><h1 class="col-2">is</h1></li>
+            <li><h1 class="col-1">what</h1></li>
+            <li><h1 class="col-3">you</h1></li>
+            <li><h1 class="col-3">wanted</h1></li>
+          </div>
         </div>
       </div>
 
@@ -317,6 +331,23 @@
       link.forEach((b) => b.addEventListener("mouseleave", animateit));
       window.addEventListener("mousemove", editCursor);
     })();
+  </script>
+
+<!---circular animation-->
+  <script>
+	  const circletype = new CircleType(document.getElementById("rotated")).radius(80);
+$(window).scroll(function () {
+  var offset = $(window).scrollTop();
+  offset = offset * .6;
+
+  $(".circular-text").css({
+    "-moz-transform": "rotate(" + offset + "deg)",
+    "-webkit-transform": "rotate(" + offset + "deg)",
+    "-o-transform": "rotate(" + offset + "deg)",
+    "-ms-transform": "rotate(" + offset + "deg)",
+    transform: "rotate(" + offset + "deg)",
+  });
+});
   </script>
 
   <!--MOUSE-FOLLOW ANIMATIONS-------------------------------------------->
