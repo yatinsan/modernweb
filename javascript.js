@@ -30,7 +30,7 @@ const headerScroll = gsap.timeline({
     scrub: true,
     start: "-12%",
     end: "150%",
-    markers: true,
+    // markers: true,
     toggleActions: "play reverse play reverse",
     pin: true,
   },
@@ -54,48 +54,81 @@ headerScroll.to(".header_3", { opacity: 0, duration: 1, x: 50 });
 //TEXT-2  ANIMATIONS
 const smlAnim = gsap.timeline({
   scrollTrigger: {
-    trigger: ".projects",
-    scrub: true,
-    // start: "+=100% 150%",
-    // end: "+=10% 100%",
-    start: "5%",
-    end: "200%",
-    // pin: true,
-    markers: true,
-    toggleActions: "play reverse play reverse",
+    trigger: ".landing_page",
+    // scrub: true,
+    // start: "0%",
+    // end: "200%",
+    // markers: true,
+    // toggleActions: "play reverse play reverse",
   },
 });
 
-// smlAnim.to(".proj_text1", { opacity: 0 });
+smlAnim.from(".logo", { y: -200, opacity: 0, duration: 1 }, 1);
+smlAnim.from(".navigation", { x: 100, opacity: 0, duration: 1 }, 1);
+smlAnim.from(
+  ".circular-text",
+  { x: 100, opacity: 0, duration: 1, rotate: -90, scale: 2 },
+  1.5
+);
+smlAnim.fromTo(
+  ".main_text1",
+  { y: -200, opacity: 0, skewY: -10 },
+  { y: 0, opacity: 1, duration: 1.5, skewY: 0 },
+  0.1
+);
+smlAnim.fromTo(
+  ".main_text2",
+  { x: 200, opacity: 0, skewY: 2 },
+  { x: 0, opacity: 1, duration: 1.5, skewY: 0 },
+  0.1
+);
+smlAnim.fromTo(
+  ".main_line",
+  { x: -200, opacity: 0 },
+  { x: 0, opacity: 1, duration: 1 },
+  0.1
+);
+smlAnim.fromTo(
+  ".main_para",
+  { x: 100, opacity: 0 },
+  { x: 0, opacity: 1, duration: 1 },
+  0.1
+);
+smlAnim.fromTo(
+  ".main_btn",
+  { y: 150, opacity: 0, skewX: -10 },
+  { y: 0, opacity: 1, duration: 1, skewX: 0 },
+  0.3
+);
 
 ////SCROLLREVEAL.JS 3rd PARTY PLUGIN//////////
-window.sr = new ScrollReveal();
-const rightSc = {
-  delay: 1,
-  origin: "right",
-  distance: "200px",
-  duration: 2000,
-  reset: true,
-};
+// window.sr = new ScrollReveal();
+// const rightSc = {
+//   delay: 1,
+//   origin: "right",
+//   distance: "200px",
+//   duration: 2000,
+//   reset: true,
+// };
 
-const bottomSc = {
-  delay: 1,
-  origin: "bottom",
-  distance: "200px",
-  duration: 2000,
-  reset: true,
-};
+// const bottomSc = {
+//   delay: 1,
+//   origin: "bottom",
+//   distance: "200px",
+//   duration: 2000,
+//   reset: true,
+// };
 
-const scaleSc = {
-  delay: 1,
-  scale: 0.2,
-  distance: "200px",
-  duration: 2000,
-  reset: true,
-};
+// const topSc = {
+//   delay: 1,
+//   origin: "top",
+//   // distance: "200px",
+//   duration: 2000,
+//   reset: true,
+// };
 
-sr.reveal(".proj_content", rightSc);
-sr.reveal(".proj_content", scaleSc);
+// sr.reveal(".main_text1", leftSc);
+// sr.reveal(".main_text2", topSc);
 
 // sr.reveal(".question_flex", leftSc);
 // sr.reveal(".question_para", bottomSc);
@@ -117,7 +150,7 @@ const head = gsap.timeline({
     trigger: ".projects",
     ease: "none",
     start: "top top",
-    markers: true,
+    // markers: true,
     scrub: 1,
     end: () => "+=" + document.querySelector(".gap2").offsetWidth / 5,
   },
@@ -131,7 +164,7 @@ const head2 = gsap.timeline({
     trigger: ".crew",
     ease: "none",
     start: "top top",
-    markers: true,
+    // markers: true,
     scrub: 1,
     end: () => "+=" + document.querySelector(".gap2").offsetWidth / 5,
   },
@@ -145,7 +178,7 @@ const head3 = gsap.timeline({
     trigger: ".gap2",
     ease: "none",
     start: "top top",
-    markers: true,
+    // markers: true,
     scrub: 1,
     end: () => "+=" + document.querySelector(".gap2").offsetWidth / 5,
   },

@@ -2,8 +2,8 @@
   --yellow-color: #f9813a;
   --yellow-op-color: #f9803a75;
   --grey-color: #393e46;
-  --white-color:#0e0e0e;
-  --black-color: #ffffff ;
+  --white-color:#ffffff;
+  --black-color: #000000 ;
   --lite-black: #2b2618;
   --darkBlue-color: #092e46; }
 
@@ -113,7 +113,7 @@ img {
   position: fixed;
   top: 65%;
   left: 95%;
-  color: black;
+  color: var(--white-color);
   font-size: 24px;
   font-weight: thin;
   font-family: "Monument Extended";
@@ -121,7 +121,7 @@ img {
 
 ion-icon {
   font-size: 100px;
-  color: black; }
+  color: var(--white-color); }
 
 .container {
   background-color: var(--black-color);
@@ -148,7 +148,7 @@ ion-icon {
       height: 800px; }
     .landing_page .main_content .main_btn {
       z-index: 20;
-      background: #0e0e0e;
+      background: var(--white-color);
       color: var(--black-color);
       padding: 10px;
       width: 190px;
@@ -176,7 +176,7 @@ ion-icon {
     .landing_page .main_content .main_line {
       width: 400px;
       height: 2px;
-      background-color: #0e0e0e; }
+      background-color: var(--white-color); }
     .landing_page .main_content .main_para {
       text-transform: capitalize;
       font-size: 20px; }
@@ -186,7 +186,7 @@ ion-icon {
 .percent {
   z-index: 3;
   position: fixed;
-  bottom: 40px;
+  bottom: 60px;
   right: 40px;
   -webkit-text-stroke-width: .8px;
   -webkit-text-stroke-color: var(--white-color);
@@ -220,6 +220,7 @@ ion-icon {
 .first_page {
   grid-area: txt1; }
   .first_page .and {
+    color: var(--white-color);
     position: fixed;
     top: 15%;
     left: 10%;
@@ -445,6 +446,7 @@ ion-icon {
       justify-content: center;
       border: 1px solid #ffffff3b; }
     .footer_items .contact span a {
+      font-family: sans-serif;
       text-transform: uppercase;
       color: var(--black-color);
       text-decoration: none;

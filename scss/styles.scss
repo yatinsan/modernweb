@@ -2,10 +2,10 @@
 	--yellow-color: #f9813a;
 	--yellow-op-color: #f9803a75;
 	--grey-color: #393e46;
-	--white-color:#0e0e0e;
+	--white-color:#ffffff;
 	// --white-color:#ffffff;
 	// --black-color:  rgb(0, 0, 0);
-	--black-color: #ffffff ;
+	--black-color: #000000 ;
 	--lite-black: #2b2618;
 	--darkBlue-color: #092e46;
 }
@@ -148,7 +148,7 @@ img {
 	position: fixed;
 	top: 65%;
 	left: 95%;
-	color: rgb(0, 0, 0);
+	color: var(--white-color);
 	font-size: 24px;
 	font-weight: thin;
 	font-family: "Monument Extended";
@@ -160,7 +160,7 @@ img {
 
 ion-icon {
 	font-size: 100px;
-	color: rgb(0, 0, 0);
+	color: var(--white-color);
 }
 //////////////////////////////////////
 
@@ -230,7 +230,7 @@ ion-icon {
 
 		& .main_btn {
 			z-index: 20;
-			background: #0e0e0e;
+			background: var(--white-color);
 			color: var(--black-color);
 			padding: 10px;
 			width: 190px;
@@ -269,7 +269,7 @@ ion-icon {
 	& .main_line {
 		width: 400px;
 		height:2px;
-		background-color: #0e0e0e;
+		background-color: var(--white-color);
 	}
 
 	& .main_para {
@@ -289,7 +289,7 @@ ion-icon {
 .percent {
 	z-index: 3;
 	position: fixed;
-	bottom: 40px;
+	bottom: 60px;
 	right: 40px;
 	-webkit-text-stroke-width: .8px;
   	-webkit-text-stroke-color: var(--white-color);
@@ -387,6 +387,7 @@ ion-icon {
 	}
 
 	& .and {
+		color: var(--white-color);
 		position: fixed;
 		top: 15%;
 		left: 10%;
@@ -632,7 +633,7 @@ ion-icon {
 	
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////FOOTER////////////////////////////////////////////////////
 .footer {
 	// background-color:#FFB300;
@@ -779,6 +780,7 @@ ion-icon {
 	}
 
 	& span a {
+		font-family: sans-serif;
 		text-transform: uppercase;
 		color: var(--black-color);
 		text-decoration: none;
