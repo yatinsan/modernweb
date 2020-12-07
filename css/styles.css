@@ -64,7 +64,9 @@ h4 {
 
 .col-1, .col-2, .col-3 {
   font-family: sans-serif;
-  font-weight: 900; }
+  font-weight: 900;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--yellow-color); }
 
 .stroke {
   color: var(--black-color);
@@ -86,8 +88,8 @@ img {
 .bgtext {
   font-size: 450px;
   -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: var(--white-color);
-  -webkit-text-fill-color: transparent; }
+  -webkit-text-stroke-color: var(--yellow-color);
+  -webkit-text-fill-color: var(--white-color); }
 
 .line {
   position: relative;
@@ -126,7 +128,7 @@ ion-icon {
 .container {
   background-color: var(--black-color);
   display: grid;
-  grid-template-rows: [main-start] repeat(6, 780px) [main-end faq-start] 780px [faq-end footer-start] 780px [footer-end];
+  grid-template-rows: [main-start] repeat(6, 780px) [main-end faq-start] minmax(80px, auto) [faq-end footer-start] 780px [footer-end];
   grid-template-areas: "lan lan lan lan" "txt1 txt1 txt1 txt1" "txt2 txt2 txt2 txt2" "txt3 txt3 txt3 txt3" "txt4 txt4 txt4 txt4" "txt5 txt5 txt5 txt5" "txt6 txt6 txt6 txt6" "foo foo foo foo";
   transition: 1s; }
 
@@ -187,7 +189,7 @@ ion-icon {
   z-index: 3;
   position: fixed;
   bottom: 60px;
-  right: 40px;
+  right: 30px;
   -webkit-text-stroke-width: .8px;
   -webkit-text-stroke-color: var(--white-color);
   -webkit-text-fill-color: rgba(0, 0, 0, 0); }
@@ -201,7 +203,7 @@ ion-icon {
   top: 65px;
   left: 0px; }
   .logo h3 {
-    color: var(--white-color); }
+    color: var(--yellow-color); }
 
 .navigation {
   grid-area: nav;
@@ -222,7 +224,7 @@ ion-icon {
   .first_page .and {
     color: var(--white-color);
     position: fixed;
-    top: 15%;
+    top: 19%;
     left: 10%;
     font-size: 300px; }
   .first_page .header_1 {
@@ -247,7 +249,7 @@ ion-icon {
       margin-bottom: -25px; }
   .first_page .header_3 {
     position: relative;
-    top: 46%;
+    top: 44%;
     left: 37%;
     opacity: 1; }
     .first_page .header_3 .text-3 {
@@ -305,12 +307,17 @@ ion-icon {
     height: 500px; }
 
 .faq {
+  opacity: .2;
   grid-area: txt6;
-  border-bottom: 1px solid var(--lite-black); }
+  border-bottom: 1px solid var(--white-color);
+  border-top: 1px solid var(--white-color);
+  display: flex;
+  justify-content: center;
+  padding: 40px 0 40px 0; }
   .faq .faq_sub .blur {
+    display: none;
     position: absolute;
     left: 15%;
-    margin-top: 200px;
     width: 70vw;
     height: 70vh;
     backdrop-filter: blur(100px);
@@ -318,6 +325,7 @@ ion-icon {
     border-radius: 38px;
     opacity: .5; }
   .faq .faq_sub .faq-text {
+    display: none;
     z-index: 3;
     width: 70vw;
     height: 70vh;
@@ -325,6 +333,7 @@ ion-icon {
     top: -49px;
     left: -100px; }
     .faq .faq_sub .faq-text h1 {
+      display: none;
       position: relative;
       left: 20%;
       top: 10%;
@@ -332,17 +341,14 @@ ion-icon {
       font-size: 300px;
       opacity: 0.2; }
   .faq .faq_sub .questions {
-    position: absolute;
-    left: 22%;
-    margin-top: 250px;
-    width: 60vw;
-    height: 60vh;
+    display: flex;
+    flex-direction: column;
     font-family: sans-serif;
-    color: var(--white-color); }
+    color: var(--white-color);
+    justify-content: center;
+    align-items: center; }
     .faq .faq_sub .questions .question_flex {
-      display: flex;
-      justify-content: flex-start;
-      margin-left: -50px; }
+      display: flex; }
       .faq .faq_sub .questions .question_flex h1 {
         text-transform: uppercase; }
       .faq .faq_sub .questions .question_flex h2 {
@@ -350,7 +356,9 @@ ion-icon {
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: var(--white-color);
         -webkit-text-fill-color: transparent; }
-    .faq .faq_sub .questions p {
+    .faq .faq_sub .questions .question_para {
+      display: none;
+      width: 70vw;
       text-transform: capitalize;
       color: var(--white-color);
       font-size: 30px;
@@ -358,8 +366,9 @@ ion-icon {
       -webkit-text-stroke-width: 1px;
       -webkit-text-stroke-color: var(--white-color);
       -webkit-text-fill-color: transparent; }
-  .faq .faq2, .faq .faq3 {
-    opacity: 0; }
+
+.faq:hover {
+  opacity: 1; }
 
 .footer {
   background-color: var(--black-color);
@@ -370,7 +379,7 @@ ion-icon {
     position: absolute;
     left: 35px;
     margin-top: 160px;
-    -webkit-text-fill-color: var(--darkBlue-color);
+    -webkit-text-fill-color: var(--grey-color);
     -webkit-text-stroke-width: 0px;
     opacity: .2; }
   .footer .copyright {
@@ -391,10 +400,10 @@ ion-icon {
     .footer_items .menu ul li {
       display: flex;
       justify-content: start;
-      color: var(--white-color);
+      color: var(--yellow-color);
       margin-bottom: 70px; }
       .footer_items .menu ul li a {
-        color: var(--white-color);
+        color: var(--yellow-color);
         font-size: 50px;
         font-weight: 700;
         letter-spacing: -5px;
@@ -438,7 +447,7 @@ ion-icon {
     margin-top: 100px; }
     .footer_items .contact span {
       align-items: center;
-      background: var(--darkBlue-color);
+      background: var(--black-color);
       border-radius: 80px;
       display: flex;
       height: 100px;
@@ -448,7 +457,7 @@ ion-icon {
     .footer_items .contact span a {
       font-family: sans-serif;
       text-transform: uppercase;
-      color: var(--black-color);
+      color: var(--yellow-color);
       text-decoration: none;
       font-size: 50px;
       font-weight: 700;

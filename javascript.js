@@ -29,27 +29,27 @@ const headerScroll = gsap.timeline({
     trigger: ".first_page",
     scrub: true,
     start: "-12%",
-    end: "150%",
+    end: "100%",
     // markers: true,
     toggleActions: "play reverse play reverse",
     pin: true,
   },
 });
 
-headerScroll.from(".header_1", { opacity: 0, duration: 4, y: 20 }),
-  headerScroll.to(".header_1", { opacity: 1, duration: 3, y: -70 });
-headerScroll.from(".header_2", { opacity: 0, duration: 4.5, y: 20 }),
-  headerScroll.to(".header_2", { opacity: 1, duration: 4.5, y: -50 });
+headerScroll.from(".header_1", { opacity: 0, duration: 4, x: 30 }),
+  headerScroll.to(".header_1", { opacity: 1, duration: 3, x: -40 });
+headerScroll.from(".header_2", { opacity: 0, duration: 4.5, x: 30 }),
+  headerScroll.to(".header_2", { opacity: 1, duration: 4.5, x: -30 });
 headerScroll.from(".and", { opacity: 0, duration: 4.5, x: -20 }),
   headerScroll.to(".and", { opacity: 1, duration: 4 });
-headerScroll.from(".header_3", { opacity: 0, duration: 4.5, y: 20 }),
-  headerScroll.to(".header_3", { opacity: 1, duration: 4, y: -50 });
+headerScroll.from(".header_3", { opacity: 0, duration: 4.5, x: 30 }),
+  headerScroll.to(".header_3", { opacity: 1, duration: 4, x: -40 });
 
 //fade away
-headerScroll.to(".header_1", { opacity: 0, duration: 4, x: 70 });
-headerScroll.to(".header_2", { opacity: 0, duration: 4, x: 50 });
-headerScroll.to(".and", { opacity: 0, duration: 4.5, x: -50 });
-headerScroll.to(".header_3", { opacity: 0, duration: 1, x: 50 });
+// headerScroll.to(".header_1", { opacity: 0, duration: 4, x: 70 });
+// headerScroll.to(".header_2", { opacity: 0, duration: 4, x: 50 });
+// headerScroll.to(".and", { opacity: 0, duration: 4.5, x: -50 });
+// headerScroll.to(".header_3", { opacity: 0, duration: 1, x: 50 });
 
 //TEXT-2  ANIMATIONS
 const smlAnim = gsap.timeline({
@@ -67,7 +67,7 @@ smlAnim.from(".logo", { y: -200, opacity: 0, duration: 1 }, 1);
 smlAnim.from(".navigation", { x: 100, opacity: 0, duration: 1 }, 1);
 smlAnim.from(
   ".circular-text",
-  { x: 100, opacity: 0, duration: 1, rotate: -90, scale: 2 },
+  { x: -1000, opacity: 0, duration: 1, rotate: -300 },
   1.5
 );
 smlAnim.fromTo(
@@ -194,3 +194,17 @@ head3.to(".proj_text3", { opacity: 0, y: -500 });
 // });
 
 //////////////////////////////////
+///////////DOM manipulation///////////////////
+
+const faq = document.querySelector(".questions");
+
+faq.addEventListener("click", (e) => {
+  const target = e.target;
+  const elmnt = document.querySelector(".question_para");
+  if (elmnt.style.display == "none") {
+    elmnt.style.display = "flex";
+  } else {
+    elmnt.style.display = "none";
+  }
+  console.log(elmnt);
+});

@@ -89,6 +89,8 @@ h4 {
 .col-1 ,.col-2 ,.col-3 {
 	font-family: sans-serif;
 	font-weight: 900;
+	-webkit-text-stroke-width: 2px;
+  	-webkit-text-stroke-color: var(--yellow-color);
 }
 
 .stroke {
@@ -113,8 +115,8 @@ img {
 .bgtext {
 	font-size: 450px;
 	-webkit-text-stroke-width: 3px;
-  	-webkit-text-stroke-color: var(--white-color);
-	-webkit-text-fill-color: transparent;
+  	-webkit-text-stroke-color: var(--yellow-color);
+	-webkit-text-fill-color: var(--white-color);
 }
 
 ////line
@@ -168,7 +170,7 @@ ion-icon {
 
 	background-color: var(--black-color);
 	display: grid;
-	grid-template-rows: [main-start] repeat(6,780px ) [main-end faq-start] 780px [faq-end footer-start] 780px [footer-end];
+	grid-template-rows: [main-start] repeat(6,780px ) [main-end faq-start] minmax(80px,auto) [faq-end footer-start] 780px [footer-end];
 	// grid-template-columns: repeat(4,1fr);
 
 	grid-template-areas:"lan lan lan lan"
@@ -290,7 +292,7 @@ ion-icon {
 	z-index: 3;
 	position: fixed;
 	bottom: 60px;
-	right: 40px;
+	right: 30px;
 	-webkit-text-stroke-width: .8px;
   	-webkit-text-stroke-color: var(--white-color);
 	-webkit-text-fill-color: rgba(0, 0, 0, 0);
@@ -352,7 +354,7 @@ ion-icon {
 	left: 0px;
 
 	& h3 {
-		color : var(--white-color);
+		color : var(--yellow-color);
 	}
 }
 
@@ -389,7 +391,7 @@ ion-icon {
 	& .and {
 		color: var(--white-color);
 		position: fixed;
-		top: 15%;
+		top: 19%;
 		left: 10%;
 		font-size:300px;
 	}
@@ -424,7 +426,7 @@ ion-icon {
 
 .header_3 {
 	position: relative;
-	top: 46%;
+	top: 44%;
 	left: 37%;
 	opacity:1;
 
@@ -439,7 +441,7 @@ ion-icon {
 		margin-bottom: -25px;
 
 	// 	&:last-child {
-	// 		-webkit-text-stroke-width: 3px;
+	// 	-webkit-text-stroke-width: 3px;
   	// -webkit-text-stroke-color: var(--white-color);
 	// -webkit-text-fill-color: transparent;
 	// 	}
@@ -545,18 +547,26 @@ ion-icon {
 /////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////THISANDTHAT////////////////////////////////////////////////////
 .faq {
+	opacity: .2;
 	grid-area: txt6;
 	// background-color: var(--grey-color);
-	border-bottom: 1px solid var(--lite-black);
+	border-bottom: 1px solid var(--white-color);
+	border-top: 1px solid var(--white-color);
+	display: flex;
+	justify-content: center;
+	padding:40px 0 40px 0 ;
+	
+	
 
 	& .faq_sub {
 		// background: #d4d4d4;
 		
 		& .blur {
+			display: none;
 		// background-color: #ffd900;
 		position: absolute;
 		left: 15%;
-		margin-top: 200px;
+		// margin-top: 200px;
 		// transform: translate(-50%, -50%);
 		width: 70vw;
 		height: 70vh;
@@ -567,6 +577,7 @@ ion-icon {
 	}
 
 	& .faq-text {
+		display: none;
 		z-index: 3;
 		width: 70vw;
 		height: 70vh;
@@ -575,6 +586,7 @@ ion-icon {
 		left: -100px;
 
 		& h1 {
+			display: none;
 			position: relative;
 			left: 20%;
 			top: 10%;
@@ -589,18 +601,18 @@ ion-icon {
 	}
 
 	.questions {
-		position: absolute;
-		left: 22%;
-		margin-top: 250px;
-		width: 60vw;
-		height: 60vh;
+		display: flex;
+		flex-direction: column;
 		font-family: sans-serif;
 		color: var(--white-color);
+		justify-content: center;
+		align-items: center;
 
 		& .question_flex{
 			display: flex;
-			justify-content: flex-start;
-			margin-left: -50px;
+			// justify-content: flex-start;
+			// align-items: center;
+			// margin-left: -50px;
 			
 			& h1 {
 			text-transform: uppercase;
@@ -615,7 +627,9 @@ ion-icon {
 		}
 		}
 
-		& p{
+		.question_para{
+			display: none;
+			width: 70vw;
 			text-transform: capitalize;
 			color: var(--white-color);
 			font-size: 30px;
@@ -626,11 +640,10 @@ ion-icon {
 			}
 	}
 	}
-
-& .faq2,.faq3 {
-	opacity: 0;
 }
-	
+
+.faq:hover {
+	opacity: 1;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -646,7 +659,7 @@ ion-icon {
 		position: absolute;
 		left: 35px;
 		margin-top: 160px;
-		-webkit-text-fill-color: var(--darkBlue-color);
+		-webkit-text-fill-color: var(--grey-color);
 		-webkit-text-stroke-width: 0px;
 		opacity: .2
 	}
@@ -674,11 +687,11 @@ ion-icon {
 		display: flex;
 		justify-content: start;
 		// color: #000;
-		color: var(--white-color);
+		color: var(--yellow-color);
 		margin-bottom: 70px;
 
 		& a {
-			color: var(--white-color);
+			color: var(--yellow-color);
 			font-size: 50px;
 			font-weight: 700;
 			letter-spacing: -5px;
@@ -753,7 +766,7 @@ ion-icon {
 
 	& span {
 		align-items: center;
-		background: var(--darkBlue-color);
+		background: var(--black-color);
 		// filter: contrast(-3px);
 		border-radius: 80px;
 		display: flex;
@@ -782,7 +795,7 @@ ion-icon {
 	& span a {
 		font-family: sans-serif;
 		text-transform: uppercase;
-		color: var(--black-color);
+		color: var(--yellow-color);
 		text-decoration: none;
 		font-size: 50px;
 		font-weight: 700;
